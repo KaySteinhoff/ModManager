@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<script src="webui.js"></script>
+		<title>Mod manager</title>
+	</head>
+	<body>
+		<div class="main">
+			<ul>
+				<li><a href="index.html">Back</a></li>
+				<li style="float: right"><a onclick="window.open('https://www.nexusmods.com/users/myaccount?tab=api%20access','name','width=600,height=400')" style="user-select: none">Where do I get my apikey?</a></li>
+			</ul>
+			<div style="align-items: center; display: flex; flex-direction: column; justify-content: center; padding: 10px; background-color: #111A; border-radius: 3px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+				<input style="margin-bottom: 20px; width: 300px; font-size: 1.5rem" id="fapikey" type="text">
+				<button style="font-size: 2rem" onclick="registerKey(document.getElementById('fapikey').value);window.location.href='index.html';">Register key</button>
+			</div>
+		</div>
+		<div class="footer">
+			<p class="center" style="text-align: center; padding: 0px 10px 0px 10px; color: #f00">You shouldn't give your apikey to random people who you don't trust. An apikey can not only be used to retrieve your user name but also your email and other account related activities. If you do not want to give up your apikey that's fine but Mod manager won't be able to download or update mods. To see what Mod manager does with your apikey please visit https://www.github.com/KaySteinhoff/ModManager</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,8 @@
+User database
+4byte Primary key; 64byte Username
+
+Game database
+4byte Primary key; 4byte user foreign key; 128byte game name; 128byte game domain
+
+Mod database
+4byte Primary key; 4byte game foreign key; 16byte mod version; 128byte modDomain

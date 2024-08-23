@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<script src="webui.js"></script>
+		<script src="index.js"></script>
+		<title>Mod manager</title>
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				// DOM is loaded. Check if `webui` object is available
+				if (typeof webui !== 'undefined') {
+					// Set events callback
+					webui.setEventCallback((e) => {
+						if (e == webui.event.CONNECTED) {
+							pageLoad();
+						}
+					});
+				} else {
+					// The virtual file `webui.js` is not included
+					alert('Please add webui.js to your HTML.');
+				}
+			});
+
+			function pageLoad()
+			{
+				if(!webui.isConnected())
+					return;
+				webui.my_c_func();
+			}
+		</script>
+	</head>
+	<body>
+		<div class="main" style="background-color: #f00">
+			<ul>
+				<li><a class="active" id="homeButton" style="user-select: none" onclick="document.getElementById('contentFrame').src = 'home.html'; document.getElementById('manageButton').classList.remove('active'); document.getElementById('updateButton').classList.remove('active'); document.getElementById('homeButton').classList.add('active');">Home</a></li>
+				<li><a id="manageButton" style="user-select: none" onclick="document.getElementById('contentFrame').src = 'managed_games.html'; document.getElementById('homeButton').classList.remove('active'); document.getElementById('updateButton').classList.remove('active'); document.getElementById('manageButton').classList.add('active');">Managed Games</a></li>
+				<li><a id="updateButton" style="user-select: none" onclick="document.getElementById('contentFrame').src = 'updates.html'; document.getElementById('manageButton').classList.remove('active'); document.getElementById('homeButton').classList.remove('active'); document.getElementById('updateButton').classList.add('active');">Updates</a></li>
+				<li class="user"><a href="login.html" style="padding: 0"><img src="usrImg.png" id="usrImg" height="35px" style="padding: 5px 5px" alt="usrImg"></a></li>
+			</ul>
+			<iframe id="contentFrame" src="home.html" width="100%" style="border: 0; height: 78.2vh">
+			</iframe>
+		</div>
+		<div class="footer" style="background-color: #000">
+			<h3 id="apiKeyWarning" style="padding: 0; margin: 0; color: #f00">You are not logged in. You can view and run mods or add a game to manage but not install or update any mods. To do so please register your custom apikey.</h3>
+			<h3 id="apiKeyLink" style="padding: 0; margin: 0"><a href="https://www.nexusmods.com/users/myaccount?tab=api%20access" target="_blank">See/create your apikey here at the bottom of the page</a></h3>
+		</div>
+	</body>
+</html>

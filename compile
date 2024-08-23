@@ -1,0 +1,2 @@
+gcc src/*.c -I inc -L lib -lwebui -lcurl -Wall -Werror -o modManager -Wl,-rpath=./
+cp lib/libwebui.so ./libwebui.so
